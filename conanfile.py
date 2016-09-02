@@ -1,4 +1,5 @@
 from conans import ConanFile, CMake
+from shutil import copy
 
 class LibjwtConan(ConanFile):
     name = 'libjwt'
@@ -7,9 +8,11 @@ class LibjwtConan(ConanFile):
     generators = "cmake"
     url = "https://github.com/benmcollins/libjwt"
     license = "LGPLv2.1"
+    exports = "*"
 
     def source(self):
         self.run("git clone --branch master https://github.com/benmcollins/libjwt")
+        copy("CMakeLists.txt", "libjwt")
 
     def build(self):
         cmake = CMake(self.settings)
