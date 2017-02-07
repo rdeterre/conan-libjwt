@@ -6,6 +6,8 @@ class LibjwtConan(ConanFile):
     version= 'master'
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
+    requires = "OpenSSL/1.0.2j@lasote/stable",\
+               "jansson/2.7@lasote/stable"
     url = "https://github.com/benmcollins/libjwt"
     license = "LGPLv2.1"
     exports = "*"

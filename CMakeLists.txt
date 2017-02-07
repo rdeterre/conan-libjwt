@@ -1,7 +1,10 @@
 project(libjwt C)
 cmake_minimum_required(VERSION 2.8)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror -Wall -Ofast -Wextra -pedantic -fPIE")
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror -Ofast -fPIE")
 
 set(LIBRARY_NAME jwt)
 
